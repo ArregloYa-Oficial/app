@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>ARREGLOYA | Servicios rápidos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root { --verde: #1fa866; --verde-oscuro: #178f56; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f4f7f6; color: #333; }
+
+    header { background: var(--verde); color: white; padding: 20px; text-align: center; }
+    .logo { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 28px; font-weight: 800; }
+    .logo .ya { background: white; color: var(--verde); padding: 2px 6px; border-radius: 6px; }
+
+    .hero { padding: 60px 20px; text-align: center; background: white; }
+    .hero h2 { font-size: 32px; margin-bottom: 10px; }
+    
+    /* MEJORA TABLETS: Botones flexibles */
+    .hero-buttons { 
+      display: flex; 
+      justify-content: center; 
+      gap: 15px; 
+      flex-wrap: wrap; 
+      max-width: 800px; 
+      margin: 0 auto; 
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+      color: white; padding: 16px 30px; border-radius: 14px;
+      font-size: 16px; font-weight: bold; border: none; cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+      transition: transform 0.2s;
+      min-width: 200px;
+    }
+    .btn.secondary { background: white; color: var(--verde); border: 2px solid var(--verde); box-shadow: none; }
+    .btn:active { transform: scale(0.98); }
+
+    /* MEJORA TABLETS: Contenedor más ancho y cómodo */
+    .form-container {
+      max-width: 550px;
+      width: 90%;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    }
+
+    /* Evita el auto-zoom en iPhone/Android */
+    input, select, textarea {
+      width: 100%; padding: 14px; margin-bottom: 14px;
+      border-radius: 10px; border: 1px solid #ddd;
+      background: #f9f9f9; font-size: 16px; /* 16px es clave para mobile */
+      box-sizing: border-box;
+    }
+
+    .floating { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
+    .floating a { text-decoration: none; background: var(--verde); color: white; padding: 14px 18px; border-radius: 50px; font-weight: bold; box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+    .floating a.whatsapp { background: #25d366; }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 26px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="46" stroke="white" stroke-width="8"/>
+        <path d="M30 52 L45 67 L70 35" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>ARREGLO<span class="ya">YA</span></span>
+    </div>
+    <p>Servicios rápidos y confiables</p>
+  </header>
+
+  <div class="hero">
+    <h2>¿Qué necesitás hoy?</h2>
+    <p>Pedí un servicio en segundos o sumate al equipo.</p>
+    <div class="hero-buttons">
+      <button class="btn" onclick="document.getElementById('pedido').scrollIntoView({behavior: 'smooth'})">
+        PEDIR SERVICIO
+      </button>
+      <a href="prestadores.html" style="text-decoration:none">
+        <button class="btn secondary">SOY PRESTADOR</button>
+      </a>
+    </div>
+  </div>
+
+  <section id="pedido" style="padding: 60px 20px;">
+    <h2 style="text-align:center; color:var(--verde); margin-bottom:30px;">Pedido de servicio</h2>
+    <div class="form-container">
+      <form id="pedidoForm">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="tel" id="telefono" placeholder="Teléfono" required>
+        <select id="servicio" required>
+          <option value="">Tipo de servicio</option>
+          <option>Electricidad</option>
+          <option>Plomería</option>
+          <option>Cerrajería</option>
+          <option>Limpieza</option>
+          <option>Informática</option>
+        </select>
+        <input type="text" id="zona" placeholder="Zona / Barrio" required>
+        <select id="urgencia">
+          <option>Urgente</option>
+          <option>En la semana</option>
+          <option>Sin apuro</option>
+        </select>
+        <textarea id="descripcion" placeholder="Contanos el problema..." style="height:100px; resize:none;"></textarea>
+        <button class="btn" type="submit" style="width:100%">ENVIAR PEDIDO</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="floating">
+    <a class="whatsapp" href="https://wa.me/5493462624341" target="_blank">WhatsApp</a>
+  </div>
+
+  <footer style="background:var(--verde); color:white; text-align:center; padding:30px; font-size:14px;">
+    © 2026 ARREGLOYA · Tu solución a un toque
+  </footer>
+
+  <script>
+    const form = document.getElementById("pedidoForm");
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const btn = form.querySelector("button");
+      btn.innerText = "Enviando...";
+      btn.disabled = true;
+
+      fetch("https://script.google.com/macros/s/AKfycbyH-iniuSkot35xepvoh1hOs9j2WjLMYyhKpF1mSUoJovIbB1pFJMuJNX39ooOsNA717w/exec", {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          nombre: document.getElementById("nombre").value,
+          telefono: document.getElementById("telefono").value,
+          servicio: document.getElementById("servicio").value,
+          zona: document.getElementById("zona").value,
+          urgencia: document.getElementById("urgencia").value,
+          descripcion: document.getElementById("descripcion").value
+        })
+      }).then(() => {
+        form.innerHTML = "<div style='text-align:center; color:#1fa866; font-weight:bold; padding:20px;'>✅ Pedido enviado. Te contactaremos pronto.</div>";
+      });
+    });
+  </script>
+</body>
+</html>
