@@ -84,9 +84,10 @@ form.addEventListener("submit", e => {
     mode: "no-cors",
     body: JSON.stringify(datosEnvio)
   }).then(() => {
-    contenido.innerHTML = `<div class="success">✅ Registro enviado correctamente.<br>Ya podés ver tu nombre en la planilla.</div>`;
+    contenido.innerHTML = `<div class="success">✅ ¡Registro exitoso! Nos pondremos en contacto pronto para activar tu perfil.</div>`;
   }).catch(err => alert("Error: " + err));
 });
 </script>
 </body>
 </html>
+
