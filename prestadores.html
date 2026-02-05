@@ -3,63 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ser Prestador | ARREGLOYA</title>
+<title>Ser Prestador | ArregloYa</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-:root { --verde: #16a34a; --verde-oscuro: #15803d; --gris: #f3f4f6; }
-* { box-sizing: border-box; font-family: system-ui, sans-serif; }
-body { margin: 0; background: var(--gris); }
-header { background: white; padding: 16px 24px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
-.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; color: var(--verde); }
-.container { max-width: 520px; margin: 40px auto; background: white; padding: 32px; border-radius: 14px; box-shadow: 0 20px 40px rgba(0,0,0,.1); }
-h1 { margin-top: 0; font-size: 26px; }
-p { color: #555; margin-bottom: 24px; }
-form { display: flex; flex-direction: column; gap: 14px; }
-input, select { padding: 14px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; }
-button { background: var(--verde); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; }
-button:hover { background: var(--verde-oscuro); }
-.success { background: #dcfce7; color: #166534; padding: 20px; border-radius: 12px; text-align: center; font-weight: 600; }
-footer { text-align: center; margin: 30px 0; color: #666; font-size: 14px; }
+:root {
+  --verde: #2ecc71;
+  --verde-oscuro: #27ae60;
+  --oscuro: #2c3e50;
+  --gris-suave: #f9fafb;
+}
+
+* { box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* HEADER ESTILO ARREGLOYA */
+header {
+  background: white;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--verde);
+}
+
+.circle-check {
+  width: 28px; height: 28px; border: 2px solid var(--verde);
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; color: var(--verde); font-weight: bold; font-size: 16px;
+}
+
+.logo span {
+  background: var(--verde); color: white;
+  padding: 2px 6px; border-radius: 4px; margin-left: -2px;
+}
+
+/* CONTENEDOR */
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+h1 { margin-top: 0; font-size: 24px; color: var(--oscuro); text-align: center; }
+p { color: #718096; text-align: center; margin-bottom: 30px; line-height: 1.5; }
+
+/* FORM */
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0aec0;
+  transition: color 0.3s;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px 14px 14px 45px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  background: #f8fafc;
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--verde);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+}
+
+input:focus + i { color: var(--verde); }
+
+/* BOTÓN CON BRILLO */
+button {
+  background: var(--verde);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+button::after {
+    content: ''; position: absolute; top: -50%; left: -60%;
+    width: 20%; height: 200%; background: rgba(255, 255, 255, 0.3);
+    transform: rotate(30deg); animation: shine 5s infinite;
+}
+
+@keyframes shine { 0% { left: -60%; } 15% { left: 120%; } 100% { left: 120%; } }
+
+button:hover {
+  background: var(--verde-oscuro);
+  transform: translateY(-2px);
+}
+
+/* SUCCESS */
+.success {
+  background: #f0fff4;
+  color: #22543d;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  border: 1px solid #c6f6d5;
+}
+
+.success i { font-size: 3rem; color: var(--verde); margin-bottom: 15px; display: block; }
+
+footer { text-align: center; margin: 30px 0; color: #a0aec0; font-size: 14px; font-weight: 500; }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="logo">
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
-    ARREGLO<span>YA</span>
+    <div class="circle-check">✓</div>
+    ARREGLO <span>YA</span>
   </div>
 </header>
 
 <div class="container" id="contenido">
   <h1>Sumate como prestador</h1>
-  <p>Registrate y empezá a recibir trabajos en tu zona.</p>
+  <p>Completá tus datos y empezá a recibir pedidos de trabajo directo en tu celular.</p>
 
   <form id="formPrestador">
-    <input type="text" id="nombre" placeholder="Nombre y apellido" required>
-    <input type="tel" id="telefono" placeholder="Teléfono" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <select id="servicio" required>
-      <option value="">Servicio que ofrecés</option>
-      <option>Electricidad</option>
-      <option>Plomería</option>
-      <option>Gas</option>
-      <option>Pintura</option>
-      <option>Albañilería</option>
-      <option>PC / Tecnología</option>
-    </select>
-    <input type="text" id="zona" placeholder="Zona donde trabajás" required>
-    <select id="disponibilidad" required>
-      <option value="">Disponibilidad</option>
-      <option>Tiempo completo</option>
-      <option>Medio tiempo</option>
-      <option>Fines de semana</option>
-    </select>
-    <button type="submit" id="btnEnviar">Enviar registro</button>
+    <div class="input-group">
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="nombre" placeholder="Nombre y apellido" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-phone"></i>
+        <input type="tel" id="telefono" placeholder="Teléfono" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <select id="servicio" required>
+          <option value="">Servicio que ofrecés</option>
+          <option>Electricidad</option>
+          <option>Plomería</option>
+          <option>Gas</option>
+          <option>Pintura</option>
+          <option>Albañilería</option>
+          <option>PC / Tecnología</option>
+          <option>Otros</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" id="zona" placeholder="Zona donde trabajás" required>
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-calendar-days"></i>
+        <select id="disponibilidad" required>
+          <option value="">Disponibilidad</option>
+          <option>Tiempo completo</option>
+          <option>Medio tiempo</option>
+          <option>Fines de semana</option>
+        </select>
+    </div>
+
+    <button type="submit">Enviar registro</button>
   </form>
 </div>
 
-<footer>© 2026 ARREGLOYA</footer>
+<footer>
+  © 2026 ArregloYa • Villa Cañás
+</footer>
 
 <script>
 const form = document.getElementById("formPrestador");
@@ -67,27 +215,30 @@ const contenido = document.getElementById("contenido");
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  document.getElementById("btnEnviar").innerText = "Enviando...";
-
-  const datosEnvio = {
-    tipo: "prestador",
-    nombre: document.getElementById("nombre").value,
-    telefono: document.getElementById("telefono").value,
-    email: document.getElementById("email").value,
-    servicio: document.getElementById("servicio").value,
-    zona: document.getElementById("zona").value,
-    disponibilidad: document.getElementById("disponibilidad").value
-  };
 
   fetch("https://script.google.com/macros/s/AKfycbyjXuSQqXFZ2UclcciH_w7-yblu24jF53Ja-AGsMUPD40sc4uaNdX3xiIeEw9o79S197w/exec", {
     method: "POST",
     mode: "no-cors",
-    body: JSON.stringify(datosEnvio)
+    body: JSON.stringify({
+      tipo: "prestador",
+      nombre: document.getElementById("nombre").value,
+      telefono: document.getElementById("telefono").value,
+      email: document.getElementById("email").value,
+      servicio: document.getElementById("servicio").value,
+      zona: document.getElementById("zona").value,
+      disponibilidad: document.getElementById("disponibilidad").value
+    })
   }).then(() => {
-    contenido.innerHTML = `<div class="success">✅ ¡Registro exitoso! Nos pondremos en contacto pronto para activar tu perfil.</div>`;
-  }).catch(err => alert("Error: " + err));
+    contenido.innerHTML = `
+      <div class="success">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2>¡Registro exitoso!</h2>
+        <p>Tus datos fueron recibidos. Te contactaremos cuando haya trabajos disponibles en tu zona.</p>
+      </div>
+    `;
+  });
 });
 </script>
+
 </body>
 </html>
-
