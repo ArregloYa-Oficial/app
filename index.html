@@ -4,65 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArregloYa - Registro de Prestadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
-            display: flex; justify-content: center; align-items: center; 
-            height: 100vh; margin: 0; 
-        }
-        .container { 
-            background: white; padding: 3rem 2rem; border-radius: 24px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            max-width: 450px; width: 90%; text-align: center;
-        }
-        
-        /* EL LOGO EXACTO DE TU IMAGEN */
-        .header-logo {
-            background-color: #2ecc71;
-            padding: 20px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        .logo-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .circle-check {
-            width: 32px; height: 32px; border: 3px solid white;
-            border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; color: white; font-weight: bold; font-size: 20px;
-        }
-        .text-arreglo {
-            color: white; font-size: 1.8rem; font-weight: 800; letter-spacing: 1px;
-        }
-        .box-ya {
-            background-color: white; color: #2ecc71; padding: 2px 8px;
-            border-radius: 5px; font-size: 1.8rem; font-weight: 800; margin-left: -2px;
-        }
-        .tagline { color: white; font-size: 0.9rem; margin-top: 10px; opacity: 0.9; }
-
-        h1 { color: #2c3e50; font-size: 1.6rem; margin-top: 15px; margin-bottom: 10px; }
-        p { color: #7f8c8d; line-height: 1.6; margin-bottom: 2.5rem; font-size: 1.05rem; }
-        
-        .btn { 
-            display: block; background-color: #2ecc71; color: white; 
-            text-decoration: none; padding: 18px; border-radius: 12px; 
-            font-weight: bold; font-size: 1.1rem;
-            transition: all 0.3s ease; 
-            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.25);
-        }
-        .btn:hover { 
-            background-color: #27ae60; transform: translateY(-3px); 
-            box-shadow: 0 12px 25px rgba(46, 204, 113, 0.35);
-        }
-        .footer-text {
-            font-size: 0.85rem; color: #bdc3c7; margin-top: 25px; font-weight: 500;
-        }
+        :root { --verde: #2ecc71; --oscuro: #2c3e50; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .container { background: white; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); max-width: 450px; width: 100%; text-align: center; overflow: hidden; }
+        .header-logo { background-color: var(--verde); padding: 30px 20px; color: white; }
+        .logo-row { display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .circle-check { width: 32px; height: 32px; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .text-arreglo { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
+        .box-ya { background-color: white; color: var(--verde); padding: 2px 8px; border-radius: 5px; font-size: 1.8rem; font-weight: 800; }
+        .main-content { padding: 30px 25px; }
+        h1 { color: var(--oscuro); font-size: 1.6rem; margin-bottom: 15px; }
+        .benefits-mini { display: flex; justify-content: space-around; margin-bottom: 30px; gap: 10px; }
+        .icon-item i { font-size: 1.6rem; color: var(--verde); background: #eafff1; width: 55px; height: 55px; line-height: 55px; border-radius: 50%; margin-bottom: 10px; display: inline-block; }
+        .icon-item span { display: block; color: var(--oscuro); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        .btn { display: block; background-color: var(--verde); color: white; text-decoration: none; padding: 20px; border-radius: 15px; font-weight: 800; font-size: 1.1rem; position: relative; overflow: hidden; transition: 0.3s; box-shadow: 0 10px 20px rgba(46,204,113,0.2); }
+        .btn::after { content: ''; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%; background: rgba(255,255,255,0.3); transform: rotate(30deg); animation: shine 5s infinite; }
+        @keyframes shine { 0% { left: -60%; } 15% { left: 120%; } 100% { left: 120%; } }
+        .footer-text { padding: 20px; font-size: 0.85rem; color: #bdc3c7; background: #fcfcfc; }
     </style>
 </head>
 <body>
@@ -73,14 +33,17 @@
                 <span class="text-arreglo">ARREGLO</span>
                 <span class="box-ya">YA</span>
             </div>
-            <div class="tagline">Servicios rápidos y confiables</div>
         </div>
-        
-        <h1>¡Buscamos Profesionales!</h1>
-        <p>Unite a nuestra red de técnicos y recibí pedidos de trabajo directo en tu celular. Sin costos fijos.</p>
-        
-        <a href="prestadores.html" class="btn">POSTULARME AHORA</a>
-        
+        <div class="main-content">
+            <h1>¡Buscamos Profesionales!</h1>
+            <p>Unite a nuestra red de técnicos y recibí pedidos de trabajo directo en tu celular.</p>
+            <div class="benefits-mini">
+                <div class="icon-item"><i class="fa-solid fa-mobile-button"></i><span>Directo</span></div>
+                <div class="icon-item"><i class="fa-solid fa-user-shield"></i><span>Seguro</span></div>
+                <div class="icon-item"><i class="fa-solid fa-handshake-simple"></i><span>Gratis</span></div>
+            </div>
+            <a href="prestadores.html" class="btn">POSTULARME AHORA</a>
+        </div>
         <div class="footer-text">Etapa de reclutamiento • 2026</div>
     </div>
 </body>
