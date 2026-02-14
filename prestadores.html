@@ -140,6 +140,33 @@ button:hover {
 .success i { font-size: 3rem; color: var(--verde); margin-bottom: 15px; display: block; }
 
 footer { text-align: center; margin: 30px 0; color: #a0aec0; font-size: 14px; font-weight: 500; }
+
+/* ESTILO BOTÓN WHATSAPP */
+.btn-whatsapp {
+    position: fixed;
+    width: 65px;
+    height: 65px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s;
+}
+.btn-whatsapp:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+}
+.btn-whatsapp i {
+    font-size: 35px;
+}
 </style>
 </head>
 
@@ -208,6 +235,10 @@ footer { text-align: center; margin: 30px 0; color: #a0aec0; font-size: 14px; fo
 <footer>
   © 2026 ArregloYa • Villa Cañás
 </footer>
+
+<a href="https://wa.me/5493462603522?text=Hola%20Arreglo%20Ya,%20quiero%20postularme%20como%20profesional" class="btn-whatsapp" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 
 <script>
 const form = document.getElementById("formPrestador");
