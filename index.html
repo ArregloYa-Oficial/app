@@ -23,6 +23,33 @@
         .btn::after { content: ''; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%; background: rgba(255,255,255,0.3); transform: rotate(30deg); animation: shine 5s infinite; }
         @keyframes shine { 0% { left: -60%; } 15% { left: 120%; } 100% { left: 120%; } }
         .footer-text { padding: 20px; font-size: 0.85rem; color: #bdc3c7; background: #fcfcfc; }
+
+        /* ESTILO BOTÓN WHATSAPP */
+        .btn-whatsapp {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        .btn-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        .btn-whatsapp i {
+            font-size: 35px;
+        }
     </style>
 </head>
 <body>
@@ -46,5 +73,9 @@
         </div>
         <div class="footer-text">Etapa de reclutamiento • 2026</div>
     </div>
+
+    <a href="https://wa.me/5493462603522?text=Hola%20Arreglo%20Ya,%20tengo%20una%20consulta" class="btn-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 </body>
 </html>
